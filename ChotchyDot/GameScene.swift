@@ -27,10 +27,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     var lowestShape:SKShapeNode?
     //ボールnode配列
     var bolls:[SKSpriteNode] = []
-    //線のパス配列
-    var pathToDraw:CGMutablePath?
     //タッチした座標配列
-    var touchPoints:[CGPoint] = []
+    var touchPoint:CGPoint = CGPointZero
     
     
     override func didMoveToView(view: SKView) {
@@ -120,24 +118,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             // シーン上のタッチされた位置を取得する
             let location = touch.locationInNode(self)
             
-            pathToDraw = CGPathCreateMutable()
-            CGPathMoveToPoint(pathToDraw, nil, location.x, location.y)
-            
-            //線を描画
-            let Line = SKShapeNode(path: pathToDraw!, centered: false)
-            // ShapeNodeの線の色を白色に指定.
-            Line.strokeColor = UIColor.whiteColor()
-            Line.fillColor = UIColor.blueColor()
-            // ShapeNodeの線の太さを指定
-            Line.lineWidth = 10.0
-            //  physicsBodyの設定
-            let physicsBody = SKPhysicsBody(polygonFromPath: pathToDraw!)   // シェイプの大きさで物理シミュレーションを行う
-            physicsBody.dynamic = false                 // 落下しないよう固定
-            Line.physicsBody = physicsBody
-            //lineNodes配列に追加
-            self.lineNodes.append(Line)
-            // ShapeNpdeをsceneに追加.
-            self.addChild(lineNodes.last!)
+            //タッチ開始ポイントを保存
+            touchPoint = location
             
         }
     }
@@ -148,10 +130,26 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             // シーン上のタッチされた位置を取得する
             let location = touch.locationInNode(self)
             
-            CGPathAddLineToPoint(pathToDraw, nil, location.x, location.y)
-
-            lineNodes.last!.path = pathToDraw
-            lineNodes.last!.physicsBody = SKPhysicsBody(edgeLoopFromPath: pathToDraw!)
+            
+            //線を描画
+            var touchPoints:[CGPoint] = [touchPoint,location]
+            let Line = SKShapeNode(points: &touchPoints, count: touchPoints.count)
+            // ShapeNodeの線の色を白色に指定.
+            Line.strokeColor = UIColor.whiteColor()
+            Line.fillColor = UIColor.blueColor()
+            // ShapeNodeの線の太さを指定
+            Line.lineWidth = 10.0
+            //  physicsBodyの設定
+            // シェイプの大きさで物理シミュレーションを行う
+            let physicsBody = SKPhysicsBody(edgeFromPoint:touchPoint , toPoint: location)
+            // 落下しないよう固定
+            physicsBody.dynamic = false
+            Line.physicsBody = physicsBody
+            // ShapeNpdeをsceneに追加.
+            self.addChild(Line)
+            
+            //現在のタッチポイントを保存
+            touchPoint = location
         }
     }
     
@@ -160,11 +158,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             // シーン上のタッチされた位置を取得する
             let location = touch.locationInNode(self)
             
-            
-            CGPathCloseSubpath(pathToDraw)
-            
-            lineNodes.last!.path = pathToDraw
-            lineNodes.last!.physicsBody = SKPhysicsBody(edgeLoopFromPath: pathToDraw!)
         }
     }
     

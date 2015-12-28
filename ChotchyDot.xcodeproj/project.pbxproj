@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8F383C3C1C2E47430019669E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F383C3B1C2E47430019669E /* AppDelegate.swift */; };
-		8F383C3E1C2E47430019669E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F383C3D1C2E47430019669E /* art.scnassets */; };
 		8F383C401C2E47430019669E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F383C3F1C2E47430019669E /* GameScene.swift */; };
 		8F383C431C2E47430019669E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F383C411C2E47430019669E /* Main.storyboard */; };
 		8F383C451C2E47430019669E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F383C441C2E47430019669E /* Assets.xcassets */; };
@@ -38,7 +37,6 @@
 /* Begin PBXFileReference section */
 		8F383C381C2E47430019669E /* ChotchyDot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChotchyDot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F383C3B1C2E47430019669E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8F383C3D1C2E47430019669E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		8F383C3F1C2E47430019669E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8F383C421C2E47430019669E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8F383C441C2E47430019669E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				8F383C3B1C2E47430019669E /* AppDelegate.swift */,
-				8F383C3D1C2E47430019669E /* art.scnassets */,
 				8F383C3F1C2E47430019669E /* GameScene.swift */,
 				8F383C411C2E47430019669E /* Main.storyboard */,
 				8F383C6B1C2E47B80019669E /* ViewController.swift */,
@@ -236,7 +233,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F383C3E1C2E47430019669E /* art.scnassets in Resources */,
 				8F383C481C2E47430019669E /* LaunchScreen.storyboard in Resources */,
 				8F383C451C2E47430019669E /* Assets.xcassets in Resources */,
 				8F383C431C2E47430019669E /* Main.storyboard in Resources */,
@@ -497,6 +493,7 @@
 				8F383C641C2E47430019669E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8F383C651C2E47430019669E /* Build configuration list for PBXNativeTarget "ChotchyDotTests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +502,7 @@
 				8F383C671C2E47430019669E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8F383C681C2E47430019669E /* Build configuration list for PBXNativeTarget "ChotchyDotUITests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +511,7 @@
 				8F383C6A1C2E47430019669E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
