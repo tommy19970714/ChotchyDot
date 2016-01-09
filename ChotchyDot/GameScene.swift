@@ -16,7 +16,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     // ゴール判定用ノード
     var goalShape:SKShapeNode?
     //線のnode配列
-    var lineNodes:[SKShapeNode] = []
+    //var lineNodes:[SKShapeNode] = []
     // 線の存続タイマー
     var lineTimer:NSTimer?
     // ゴール移動タイマー
